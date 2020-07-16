@@ -35,9 +35,6 @@ main(int argc, char *argv[])
          "renderer_height=%d\n",
          renderer_width, renderer_height);
 
-  int cairo_x_multiplier = renderer_width / window_width;
-  int cairo_y_multiplier = renderer_height / window_height;
-
   SDL_Surface *sdl_surface = SDL_CreateRGBSurface(0,
                                                   renderer_width,
                                                   renderer_height,
@@ -59,8 +56,6 @@ main(int argc, char *argv[])
                                                                        sdl_surface->w,
                                                                        sdl_surface->h,
                                                                        sdl_surface->pitch);
-
-  cairo_surface_set_device_scale(cr_surface, cairo_x_multiplier, cairo_y_multiplier);
 
   cairo_t *cr = cairo_create(cr_surface);
 
